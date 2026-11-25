@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0820">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="שוברים רטרו">
+<title>שוברים רטרו</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="menu" class="screen">
+  <h1>שוברים<br><span>רטרו</span></h1>
+  <p class="best" id="best"></p>
+  <button data-start="campaign" class="big">▶ מסע: הקושי עולה בשלבים</button>
+  <h2>או משחק ברמה קבועה</h2>
+  <div class="row">
+    <button data-start="easy">קל</button>
+    <button data-start="medium">בינוני</button>
+    <button data-start="hard">קשה</button>
+  </div>
+  <button data-show="custom" class="alt">🎨 מה לפוצץ?</button>
+  <button data-show="help" class="alt">📲 איך מתקינים?</button>
+  <button class="alt mute"></button>
+</section>
+
+<section id="custom" class="screen" hidden>
+  <h2>מה לפוצץ?</h2>
+  <p>אפשר לבחור כמה ערכות יחד</p>
+  <div id="packs" class="grid"></div>
+
+  <h2>אימוג'ים שלי</h2>
+  <div class="row">
+    <input id="emojiInput" type="text" placeholder="הקלידו אימוג'י" autocomplete="off">
+    <button id="emojiAdd">הוספה</button>
+  </div>
+
+  <h2>תמונות שלי</h2>
+  <label class="file">📷 העלאת תמונות<input id="imageInput" type="file" accept="image/*" multiple></label>
+  <p>התמונות נשמרות רק במכשיר שלך</p>
+
+  <div id="mine" class="grid"></div>
+  <p id="customMsg" role="status"></p>
+  <button data-show="menu" class="big">✔ סיום</button>
+</section>
+
+<section id="help" class="screen" hidden>
+  <h2>הוספה למסך הבית</h2>
+  <p><b>אנדרואיד (Chrome):</b><br>תפריט ⋮ ואז "התקנת אפליקציה" או "הוספה למסך הבית".</p>
+  <p><b>אייפון (Safari):</b><br>כפתור השיתוף ואז "הוסף למסך הבית".</p>
+  <p>פתחתם מפייסבוק או ממסנג'ר? קודם פותחים בדפדפן הרגיל.</p>
+  <button id="installBtn" class="big" hidden>📲 התקנה עכשיו</button>
+  <button data-show="menu">חזרה</button>
+</section>
+
+<section id="game" hidden>
+  <header>
+    <span id="hud" dir="rtl"></span>
+    <span>
+      <button class="mute small"></button>
+      <button id="pauseBtn" class="small" aria-label="השהיה">⏸</button>
+    </span>
+  </header>
+  <div id="stage"><canvas id="canvas"></canvas></div>
+  <div id="overlay" hidden>
+    <h2 id="ovTitle"></h2>
+    <p id="ovText"></p>
+    <button id="ovMain" class="big"></button>
+    <button id="ovQuit">לתפריט</button>
+  </div>
+</section>
+
+<script src="game.js"></script>
+</body>
+</html>
